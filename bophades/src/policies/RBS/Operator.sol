@@ -222,7 +222,7 @@ contract Operator is IOperator, Policy, RolesConsumer, ReentrancyGuard {
         _onlyWhileActive();
 
         // Revert if not initialized
-        if (!initialized) revert Operator_NotInitialized();
+        if (initialized == false) revert Operator_NotInitialized();
 
         // Update the prices for the range, save new regen observations, and update capacities based on bond market activity
         _updateRangePrices();
